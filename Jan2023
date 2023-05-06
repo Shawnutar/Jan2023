@@ -1,0 +1,29 @@
+num_students = 50
+book_pages = 400
+
+male_less_half = 0
+male_more_half = 0
+female_less_half = 0
+female_more_half = 0
+
+for i in range(num_students):
+    gender = input("Enter gender (M/F) for student {}: ".format(i+1))
+    pages = int(input("Enter number of pages read by student {}: ".format(i+1)))
+    while pages > book_pages:
+        print("Error: You entered more than {} pages. Please try again.".format(book_pages))
+        pages = int(input("Enter number of pages read by student {}: ".format(i+1)))
+    if gender.upper() == 'M':
+        if pages < book_pages/2:
+            male_less_half += 1
+        else:
+            male_more_half += 1
+    elif gender.upper() == 'F':
+        if pages < book_pages/2:
+            female_less_half += 1
+        else:
+            female_more_half += 1
+
+print("Total number of male students who read less than half: ", male_less_half)
+print("Total number of male students who read at least half: ", male_more_half)
+print("Total number of female students who read less than half: ", female_less_half)
+print("Total number of female students who read at least half: ", female_more_half)
